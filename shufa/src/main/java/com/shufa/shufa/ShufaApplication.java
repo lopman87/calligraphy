@@ -10,5 +10,7 @@ public class ShufaApplication {
 		SpringApplication.run(ShufaApplication.class, args);
 		
 		
+		
+		
 	}
 }
