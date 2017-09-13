@@ -14,6 +14,8 @@ public interface AdminUserMapper {
 	@Select("SELECT adminName,adminPwd  FROM adminUser WHERE adminName = #{adminName}")
 	List<AdminUserDTO> findByName(@Param("adminName") String name);
 
+	
+	
 	@Insert("INSERT INTO adminUser(adminName, adminPwd) VALUES(#{adminName}, #{adminPwd})")
 	int insert(@Param("adminName") String name, @Param("adminPwd") String age);
 
