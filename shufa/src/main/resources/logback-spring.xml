@@ -1,33 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="true" scan="true" scanPeriod="10 minutes"> 
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+<configuration  scan="true" scanPeriod="60 seconds" debug="false">
+    <contextName>logback</contextName>
+    <!--输出到控制台-->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+       <!-- <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>-->
         <encoder>
-            <Pattern>%date %level [%thread] %logger %msg%n</Pattern>
+            <pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
-    <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>${LOG_DIR}${LOG_NAME}.log</File>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-          <FileNamePattern>
-           ${LOG_DIR}${LOG_NAME}-%d.%i.log.gz
-          </FileNamePattern>
-          <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-            <MaxFileSize>10MB</MaxFileSize>
-          </TimeBasedFileNamingAndTriggeringPolicy>
-        </rollingPolicy>
-        <encoder>
-          <Pattern>%date %level [%thread] %logger %msg%n</Pattern>
-        </encoder>
-    </appender>
-    
-    <logger name="javax.net" level="info"/>
-    <logger name="javax.management" level="info"/>
-    <logger name="org.springframework" level="info"/>
-    <logger name="org.compass" level="info"/>
-    <logger name="org.tuckey" level="info"/>
+
+
     <root level="info">
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="ROLLING" />
+        <appender-ref ref="console" />
     </root>
 
 </configuration>
