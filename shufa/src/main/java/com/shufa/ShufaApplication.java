@@ -1,4 +1,4 @@
-package com.shufa.shufa;
+package com.shufa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
